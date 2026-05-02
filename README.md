@@ -80,7 +80,7 @@ DEV Sites:
 
 ### Known issues
 
-* If text does not display on a page, click the sun icon theme switcher top right to make it visable and [open an issue](https://github.com/DNA-styx/HLSTATSX-Windmill-Theme/issues).
+* If text does not display on a page, click the sun icon theme switcher top right to make it visible and [open an issue](https://github.com/DNA-styx/HLSTATSX-Windmill-Theme/issues).
 
 See the [open issues](https://github.com/DNA-styx/HLSTATSX-Windmill-Theme/issues) for known issues and feature requests.
 
@@ -109,7 +109,7 @@ Download, unzip and overwrite all files from that .zip into the root of your web
 
 Each release includes an archive, called default-hlstatsx-files-(release-number).zip, of all the uneditted default HLStatsX files used in this theme.
 
-To return to using the default HLStatsx theme copy these files to your web server overwiting the custom ones.    
+To return to using the default HLStatsx theme copy these files to your web server overwriting the custom ones.    
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -156,13 +156,13 @@ Don't forget to give the project a star! Thanks again!
 
 * [Estevanmaito's Windmill Dashboard](https://github.com/estevanmaito/windmill-dashboard) for the underlying css design code
 * [StartersClan HLStatsX:CE](https://github.com/startersclan/hlstatsx-community-edition) for the base page code
-* [Eska](https://forums.alliedmods.net/showpost.php?p=1854304&postcount=4) for inital TeamSpeak3 work (and @stive101 for letting me know)
+* [Eska](https://forums.alliedmods.net/showpost.php?p=1854304&postcount=4) for initial TeamSpeak3 work (and @stive101 for letting me know)
 * [ts3admin.class](https://github.com/Speckmops/ts3admin.class) for the TeamSpeak3 server query
 * [scheissegalo](https://github.com/scheissegalo/PHP-TS3ServerViewer) for the TeamSpeak3 server browser code
 * [Mizu](https://www.myteamspeak.com/addons/author/Mizu) & [Gox11](https://www.myteamspeak.com/addons/author/Gox11) for their TeamSpeak3 icon packs
 * [Shoelace](https://shoelace.style/) for the tree view component used in the TeamSpeak3 server browser
 * [Lemehost](https://lemehost.com/i/4tqeRx) (aff. link) for the free TeamSpeak3 server for testing
-* [Monochromatic](https://stackoverflow.com/questions/47454876/get-total-number-of-members-in-discord-using-php/74583912#74583912) for the easy Discord Voice Channel staus tip
+* [Monochromatic](https://stackoverflow.com/questions/47454876/get-total-number-of-members-in-discord-using-php/74583912#74583912) for the easy Discord Voice Channel status tip
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

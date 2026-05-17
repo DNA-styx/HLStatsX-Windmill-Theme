@@ -7,10 +7,15 @@
 function display_menu_item($name, $link, $icon) {
 	global $g_options;
 
+	// Only prepend scripturl for relative links
+	$href = (strncmp($link, 'http', 4) === 0 || strncmp($link, '//', 2) === 0)
+		? $link
+		: $g_options['scripturl'] . $link;
+
 	echo "    <li class=\"relative px-6 py-3\">\r\n";
 	echo "        <a\r\n";
 	echo "        class=\"inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200\"\r\n";
-	echo "        href=\"" . $g_options['scripturl'] . $link . "\">\r\n";
+	echo "        href=\"" . $href . "\">\r\n";
 	echo "            <span class=\"ml-4\"><i class=\"fas fa-" . $icon . "\"></i>&nbsp;" . $name . "</span>\r\n";
 	echo "        </a>\r\n";
 	echo "    </li>\r\n";
@@ -19,10 +24,15 @@ function display_menu_item($name, $link, $icon) {
 function display_menu_item_games($name, $link, $image) {
 	global $g_options;
 
+	// Only prepend scripturl for relative links
+	$href = (strncmp($link, 'http', 4) === 0 || strncmp($link, '//', 2) === 0)
+		? $link
+		: $g_options['scripturl'] . $link;
+
 	echo "    <li class=\"relative px-6 py-3\">\r\n";
 	echo "        <a\r\n";
 	echo "        class=\"inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200\"\r\n";
-	echo "        href=\"" . $g_options['scripturl'] . $link . "\">\r\n";
+	echo "        href=\"" . $href . "\">\r\n";
 	echo "            <img src=\"" . $image . "\">&nbsp;" . $name . "\r\n";
 	echo "        </a>\r\n";
 	echo "    </li>\r\n";

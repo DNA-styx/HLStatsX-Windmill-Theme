@@ -291,7 +291,7 @@ if ($g_options['playerinfo_tabs'] == '1') {
 </div>
 <div id="loading" class="mb-6">
 	<center>
-		<img src="hlstatsimg\ajax.gif">
+		<img src="hlstatsimg/ajax.gif">
 	</center>
 </div>
 <div id="content" class="mb-6"></div>

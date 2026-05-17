@@ -1,23 +1,24 @@
 /* Dark Red Theme for Public Pages */
 
 .windmill-title-bar {
-    color: #EDE9FE; 
-    background-color: #4c1a1a; 
-}
-.windmill-button {
-    color: #EDE9FE; 
+    color: #EDE9FE;
     background-color: #4c1a1a;
-    border-color: #4c1a1a; 
-    transition: background-color 0.5s; 
 }
-.windmill-button:hover {
-    background-color: #C4A484; 
-}
+
+/* Issue 18 fix: .btn grouped with .windmill-button to avoid duplicate declarations.
+   Previously both had identical colour values requiring updates in two places. */
+.windmill-button,
 .btn {
-    color: #EDE9FE; 
+    color: #EDE9FE;
     background-color: #4c1a1a;
-    transition: background-color 0.5s; 
+    border-color: #4c1a1a;
+    transition: background-color 0.5s;
 }
+
+.windmill-button:hover {
+    background-color: #C4A484;
+}
+
 .windmill-text-link {
-    color: #4c1a1a; 
+    color: #4c1a1a;
 }

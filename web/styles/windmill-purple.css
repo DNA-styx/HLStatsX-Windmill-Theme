@@ -1,24 +1,25 @@
 /* Default Purple for Public Pages */
 
 .windmill-title-bar {
-    color: #EDE9FE; 
-    background-color: #7C3AED; 
-}
-.windmill-button {
-    color: #EDE9FE; 
+    color: #EDE9FE;
     background-color: #7C3AED;
-    border-color: #7C3AED; 
-    transition: background-color 0.5s; 
 }
-.windmill-button:hover {
-    background-color: #6D28D9; 
-    border-color: #7C3AED; 
-}
+
+/* Issue 18 fix: .btn grouped with .windmill-button to avoid duplicate declarations.
+   Previously both had identical colour values requiring updates in two places. */
+.windmill-button,
 .btn {
-    color: #EDE9FE; 
+    color: #EDE9FE;
     background-color: #7C3AED;
-    transition: background-color 0.5s; 
+    border-color: #7C3AED;
+    transition: background-color 0.5s;
 }
+
+.windmill-button:hover {
+    background-color: #6D28D9;
+    border-color: #7C3AED;
+}
+
 .windmill-text-link {
-    color: #7C3AED; 
+    color: #7C3AED;
 }

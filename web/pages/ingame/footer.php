@@ -36,42 +36,43 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 For support and installation notes visit http://www.hlxcommunity.com
 */
 
-    if (!defined('IN_HLSTATS')) {
-        die('Do not access this file directly.');
-    }
+	if (!defined('IN_HLSTATS')) {
+		die('Do not access this file directly.');
+	}
 
-    // Hide Footer if using these pages elsewhere
-    if (!isset($_GET['hide'])) {  
+	// Hide Footer if using these pages elsewhere
+	if (!isset($_GET['hide'])) {
 
+		// Issue 6 fix: use absolute path via PAGE_PATH constant instead of relative path.
+		// ingame/footer.php runs from a different directory level making relative paths unreliable.
+		$theme_version_file = PAGE_PATH . '/../assets/theme_version.txt';
+		$theme_version_raw  = file_exists($theme_version_file) ? file_get_contents($theme_version_file) : '';
+		$theme_version      = str_replace(" ", "", str_replace("**", "", $theme_version_raw));
 ?>
 <!-- Start footer bar -->
-<div
-    class="flex items-center justify-between p-4 mb-4 text-sm px-4 py-3 bg-white rounded-lg shadow-md dark:bg-gray-800 text-gray-600 dark:text-gray-400">
-    <div class="flex items-center">
-        <span>
-            <a class="font-semibold" href="https://github.com/startersclan/hlstatsx-community-edition" target="_blank">
-                HLstatsX Community Edition v<?php echo $g_options['version'] ?> 
-            </a>
-        </span>
-    </div>
-    <div class="flex items-center">
-        <span align="right">
-            <a class="font-semibold" href="https://github.com/DNA-styx/hlstatsx-windmill-theme" target="_blank">
-                Theme <?php 
-                $theme_version = file_get_contents("assets/theme_version.txt");
-                echo str_replace(" ", "",str_replace("**", "", $theme_version)) . "\n";
-                ?>
-            </a>
-                based on 
-            <a class="font-semibold" href="https://github.com/estevanmaito/windmill-dashboard" target="_blank">
-                Windmill Dashboard
-            </a>
-        </span>
-    </div>
+<div class="flex items-center justify-between p-4 mb-4 text-sm px-4 py-3 bg-white rounded-lg shadow-md dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+	<div class="flex items-center">
+		<span>
+			<a class="font-semibold" href="https://github.com/startersclan/hlstatsx-community-edition" target="_blank">
+				HLstatsX Community Edition v<?php echo $g_options['version']; ?>
+			</a>
+		</span>
+	</div>
+	<div class="flex items-center">
+		<span align="right">
+			<a class="font-semibold" href="https://github.com/DNA-styx/hlstatsx-windmill-theme" target="_blank">
+				Theme <?php echo $theme_version; ?>
+			</a>
+			based on
+			<a class="font-semibold" href="https://github.com/estevanmaito/windmill-dashboard" target="_blank">
+				Windmill Dashboard
+			</a>
+		</span>
+	</div>
 </div>
 <!-- end footer bar -->
 <?php
-}
+	}
 ?>
 </body>
 </html>

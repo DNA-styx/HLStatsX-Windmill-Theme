@@ -166,7 +166,14 @@ Each theme file overrides only these selectors:
 
 ## Key Pitfalls from Development
 
-1. **Compiled Tailwind** — `gap-2`, `w-36`, and many other utilities don't exist in the compiled CSS. Use inline `style=""` or `windmill.css` rules. When in doubt, check `tailwind.output.css` before using a class.
+1. **Compiled Tailwind** — `gap-2`, `w-36`, `whitespace-no-wrap`, and many other utilities don't exist in the compiled CSS. Use inline `style=""` or `windmill.css` rules. When in doubt, check `tailwind.output.css` before using a class.
+
+   **Mobile table scrolling** — all tables use `whitespace-no-wrap` on the `<table>` element, but this class does not exist in compiled Tailwind. Replace it with `style="white-space:nowrap;"` on the `<table>` element. Without this, cells wrap their text on mobile, the table never exceeds the container width, and `overflow-x-auto` has no effect — no horizontal scroll appears. Correct pattern:
+   ```html
+   <table class="w-full" style="white-space:nowrap;">
+   <!-- or for class_table.php: -->
+   <table class="data-table w-full" style="white-space:nowrap;">
+   ```
 
 2. **Double borders** — `divide-y` on tbody + `border-top` on td = two visible lines between rows. Never add border-top to tds in these tables.
 

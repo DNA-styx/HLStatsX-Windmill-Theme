@@ -216,7 +216,7 @@ if ($total_kills > 0)
 			$accordion_enabled = "servers";
 		}
 	?>
-		<table id="<?php echo $accordion_enabled; ?>" class="w-full whitespace-no-wrap">
+		<table id="<?php echo $accordion_enabled; ?>" class="w-full" style="white-space:nowrap;">
 			<thead>
 				<tr class="text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
 					<td colspan="5" style="width:37%;">&nbsp;Server Name</td>
@@ -341,7 +341,7 @@ if ($total_kills > 0)
 
 <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
 	<div class="w-full overflow-x-auto">
-		<table class="w-full whitespace-no-wrap">
+		<table class="w-full" style="white-space:nowrap;">
 			<tr class="rounded-b-lg border-b dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
 				<td>Award</td>
 				<td>Winner</td>

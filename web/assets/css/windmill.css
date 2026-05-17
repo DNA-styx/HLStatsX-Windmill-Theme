@@ -138,3 +138,8 @@
 .windmill-text-link a {
 	text-decoration: none;
 }
+
+/* Dark mode scrollbar and form control theming */
+.dark {
+    color-scheme: dark;
+}

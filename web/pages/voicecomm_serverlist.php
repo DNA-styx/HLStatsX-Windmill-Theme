@@ -246,11 +246,11 @@
 				} else {
 					$ts3q_server_id      = '0';
 					$ts3q_server_page    = '<span style="white-space:nowrap;">' . htmlspecialchars(vc_truncate_name($ts3_server['name'])) . '</span>';
-					$ts3q_server_port    = '-';
+					$ts3q_server_port    = $ts3_server['UDPPort'];
 					$ts3q_server_clients = '-';
 					$ts3q_server_status  = '<span class="px-2 leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">offline</span>';
 					$ts3q_server_uptime  = '-';
-					$ts3q_server_link    = '-';
+					$ts3q_server_link    = $ts3_server['addr'] . ':' . $ts3_server['UDPPort'];
 				}
 ?>
 			<tr class="text-sm font-semibold text-gray-700 dark:text-gray-400">

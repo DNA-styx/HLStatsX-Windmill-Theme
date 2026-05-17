@@ -227,11 +227,11 @@ list($lastevent) = $db->fetch_row($result);
 
 		<table class="w-full" style="white-space:nowrap;">
 			<thead>
-				<tr class="text-l font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-					<td style="text-align:left;">&nbsp;</td>
-					<td style="text-align:center;">&nbsp;Current Players</td>
-					<td style="text-align:center;">&nbsp;Top Player</td>
-					<td style="text-align:center;">&nbsp;Top Clan</td>
+				<tr class="text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+					<td style="text-align:left; padding:10px;">&nbsp;</td>
+					<td style="text-align:center; padding:10px;">Current Players</td>
+					<td style="text-align:center; padding:10px;">Top Player</td>
+					<td style="text-align:center; padding:10px;">Top Clan</td>
 				</tr>
 			</thead>
 			<tbody class="bg-gray-50 divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -317,59 +317,47 @@ list($lastevent) = $db->fetch_row($result);
 			else
 				$player_string = $numplayers['act_players'].'/'.$numplayers['max_players'];
 ?>				
-				<tr class="text-l text-gray-700 dark:text-gray-400">
-					<td style="height:30px">
-						<div style="float:left;" class="flex items-center">&nbsp;<a href="<?php echo $g_options['scripturl'] . "?game=$gamedata[0]"; ?>"><img src="<?php
-			$image = getImage("/games/$gamedata[0]/game");
-			if ($image)
-				echo $image['url'];
-			else
-				echo IMAGE_PATH . '/game.gif';
-               ?>"  style="margin-left: 3px; margin-right: 4px;" alt="Game"></a><a href="<?php echo $g_options['scripturl'] . "?game=$gamedata[0]"; ?>"><?php echo $gamedata[1]; ?></a>
-						</div>
-						<div style="float:right;">
-							<div style="margin-left: 3px; margin-right: 4px; vertical-align:top; text-align:center;"><a href="<?php echo $g_options['scripturl'] . "?mode=clans&amp;game=$gamedata[0]"; ?>"><i class="fas fa-users"></i></a></div>
-							<div style="vertical-align:bottom; text-align:left;">&nbsp;<a href="<?php echo $g_options['scripturl'] . "?mode=clans&amp;game=$gamedata[0]"; ?>" class="fSmall">Clans</a>&nbsp;&nbsp;</div>
-						</div>
-							
-						<div style="float:right;">
-							<div style="margin-left: 3px; margin-right: 4px; vertical-align:top; text-align:center;"><a href="<?php echo $g_options['scripturl'] . "?mode=players&amp;game=$gamedata[0]"; ?>"><i class="fas fa-user"></i></a></div>
-							<div style="vertical-align:bottom; text-align:left;">&nbsp;<a href="<?php echo $g_options['scripturl'] . "?mode=players&amp;game=$gamedata[0]"; ?>" class="fSmall">Players</a>&nbsp;&nbsp;</div>
-						</div>
-					</td>
-					<td style="text-align:center;"><?php 
-			if ($numplayers)
-			{
-				echo $player_string;
-			}
-			else
-			{
-				echo '-';
-			}
-					?></td>
-					<td style="text-align:center;"><?php
-			if ($topplayer)
-			{
-				echo '<a href="' . $g_options['scripturl'] . '?mode=playerinfo&amp;player='
-					. $topplayer[0] . '">'.htmlspecialchars($topplayer[1], ENT_COMPAT).'</a>';
-			}
-			else
-			{
-				echo '-';
-			}
-					?></td>
-					<td style="text-align:center;"><?php
-			if ($topclan)
-			{
-				echo '<a href="' . $g_options['scripturl'] . '?mode=claninfo&amp;clan='
-					. $topclan[0] . '">'.htmlspecialchars($topclan[1], ENT_COMPAT).'</a>';
-			}
-			else
-			{
-				echo '-';
-			}
-					?></td>
-				</tr>
+<tr class="text-sm text-gray-700 dark:text-gray-400">
+    <td style="padding:10px;">
+        <div style="display:flex; align-items:center; gap:16px;">
+            <div style="display:flex; align-items:center; gap:8px; flex:1;">
+				<a href="<?php echo $g_options['scripturl'] . "?game=$gamedata[0]"; ?>" style="flex-shrink:0;">
+					<img src="<?php
+				$image = getImage("/games/$gamedata[0]/game");
+				if ($image)
+					echo $image['url'];
+				else
+					echo IMAGE_PATH . '/game.gif';
+					?>" style="height:32px; width:32px; object-fit:contain; vertical-align:middle;" alt="Game">
+				</a>
+                <a href="<?php echo $g_options['scripturl'] . "?game=$gamedata[0]"; ?>" style="font-weight:600;"><?php echo $gamedata[1]; ?></a>
+            </div>
+            <a href="<?php echo $g_options['scripturl'] . "?mode=players&amp;game=$gamedata[0]"; ?>" style="text-align:center; text-decoration:none;">
+                <div><i class="fas fa-user fa-lg"></i></div>
+                <div style="font-size:0.7rem;">Players</div>
+            </a>
+            <a href="<?php echo $g_options['scripturl'] . "?mode=clans&amp;game=$gamedata[0]"; ?>" style="text-align:center; text-decoration:none;">
+                <div><i class="fas fa-users fa-lg"></i></div>
+                <div style="font-size:0.7rem;">Clans</div>
+            </a>
+        </div>
+    </td>
+    <td style="text-align:center; padding:10px;"><?php 
+        if ($numplayers) { echo $player_string; } else { echo '-'; }
+    ?></td>
+    <td style="text-align:center; padding:10px;"><?php
+        if ($topplayer) {
+            echo '<a href="' . $g_options['scripturl'] . '?mode=playerinfo&amp;player='
+                . $topplayer[0] . '">'.htmlspecialchars($topplayer[1], ENT_COMPAT).'</a>';
+        } else { echo '-'; }
+    ?></td>
+    <td style="text-align:center; padding:10px;"><?php
+        if ($topclan) {
+            echo '<a href="' . $g_options['scripturl'] . '?mode=claninfo&amp;clan='
+                . $topclan[0] . '">'.htmlspecialchars($topclan[1], ENT_COMPAT).'</a>';
+        } else { echo '-'; }
+    ?></td>
+</tr>
 <?php
 		}
 ?>	

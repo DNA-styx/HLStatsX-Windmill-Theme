@@ -100,7 +100,51 @@ There are two distinct table patterns in the codebase. They must be kept visuall
 - Row separation from `divide-y` on `<tbody>`
 - td padding: browser default (`1px`)
 
-### Keeping Both Patterns Consistent
+### Pattern C — Front Page Overview Table (`contents.php`)
+
+Used only on the multi-game front page (`hlstats.php` with no game parameter). Has deliberately more spacing than Patterns A and B since it is the primary landing page.
+
+```html
+<table class="w-full" style="white-space:nowrap;">
+    <thead>
+        <tr class="text-sm font-semibold tracking-wide text-left text-gray-500
+                   uppercase border-b dark:border-gray-700 bg-gray-50
+                   dark:text-gray-400 dark:bg-gray-800">
+            <td style="padding:10px;">Game</td>
+            <td style="text-align:center; padding:10px;">Current Players</td>
+        </tr>
+    </thead>
+    <tbody class="bg-gray-50 divide-y dark:divide-gray-700 dark:bg-gray-800">
+        <tr class="text-sm text-gray-700 dark:text-gray-400">
+            <td style="padding:10px;">
+                <!-- Flexbox layout: game icon+name on left, Players/Clans icons stacked (icon above label) on right -->
+                <div style="display:flex; align-items:center; gap:16px;">
+                    <div style="display:flex; align-items:center; gap:8px; flex:1;">
+                        <img src="..." style="height:32px; width:32px; object-fit:contain; flex-shrink:0;">
+                        <a href="...">Game Name</a>
+                    </div>
+                    <a href="?mode=players..." style="text-align:center;">
+                        <div><i class="fas fa-user fa-lg"></i></div>
+                        <div style="font-size:0.7rem;">Players</div>
+                    </a>
+                    <a href="?mode=clans..." style="text-align:center;">
+                        <div><i class="fas fa-users fa-lg"></i></div>
+                        <div style="font-size:0.7rem;">Clans</div>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+```
+
+**Key points:**
+- `padding:10px` on all cells — deliberately more than standard tables
+- Game icons use `height:32px; width:32px; object-fit:contain` — fixed square container prevents flex layout collapsing the image width to 0. Do NOT use `width:auto` on images inside flex containers — the flex algorithm can reduce width to 0 unpredictably. Also add `flex-shrink:0` to the wrapping anchor.
+- Players/Clans use FontAwesome icons with label below, in a flexbox row
+- `text-l` is not a valid Tailwind class — use `text-sm` instead
+
+
 
 | Property | Pattern A | Pattern B |
 |---|---|---|

@@ -206,7 +206,7 @@ if ($total_kills > 0)
 
 <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
 
-	<div class="w-full overflow-x-auto">
+	<div class="w-full overflow-x-auto" style="overflow-y:hidden;">
 
 	<?php
 		/* Disable the accordion if only one server */
@@ -394,6 +394,9 @@ if (count($servers) != 1) {
 ?>
 <script>
 	$(document).ready(function(){
+		// Hide player rows on initial load
+		$(".handle").nextUntil(".handle").children().hide();
+
 		$(".handle").click(function(){
 			$(this)
 				.toggleClass('open')

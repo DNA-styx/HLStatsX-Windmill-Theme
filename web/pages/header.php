@@ -242,10 +242,10 @@ if ($game != '') {
 
 // Always display log in/log out
 if (isset($_SESSION['loggedin'])) {
-	display_menu_item("Admin Panel", $g_options['scripturl'] . "?mode=admin","cog");
-	display_menu_item("Logout", "hlstats.php?logout=1","sign-out-alt");
+	display_menu_item("Admin Panel", "?mode=admin","cog");
+	display_menu_item("Logout", "?logout=1","sign-out-alt");
 } else {
-	display_menu_item("Admin Login", $g_options['scripturl'] . "?mode=admin","sign-in-alt");
+	display_menu_item("Admin Login", "?mode=admin","sign-in-alt");
 }
 
 } else {
@@ -331,10 +331,10 @@ if ($game != '') {
 	} 
 
 	if (isset($_SESSION['loggedin'])) {
-		display_menu_item("Admin Panel", $g_options['scripturl'] . "?mode=admin","cog");
-		display_menu_item("Logout", "hlstats.php?logout=1","sign-out-alt");
+		display_menu_item("Admin Panel", "?mode=admin","cog");
+		display_menu_item("Logout", "?logout=1","sign-out-alt");
 	} else {
-		display_menu_item("Admin Login", $g_options['scripturl'] . "?mode=admin","sign-in-alt");
+		display_menu_item("Admin Login", "?mode=admin","sign-in-alt");
 	}
 
 	echo "		</ul>\r\n";

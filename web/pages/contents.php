@@ -225,7 +225,7 @@ list($lastevent) = $db->fetch_row($result);
 
 	<div class="w-full overflow-x-auto">
 
-		<table class="w-full whitespace-no-wrap">
+		<table class="w-full" style="white-space:nowrap;">
 			<thead>
 				<tr class="text-l font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
 					<td style="text-align:left;">&nbsp;</td>

@@ -131,7 +131,7 @@ list($lastevent) = $db->fetch_row($result);
 			<?php echo display_page_subtitle("General Statistics"); ?>
 			<div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
 				<!-- Card -->
-				<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+				<div class="flex items-center p-4 bg-gray-50 rounded-lg shadow-xs dark:bg-gray-800">
 					<div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
 						&nbsp;<i class="fas fa-user"></i>&nbsp;
 					</div>
@@ -141,7 +141,7 @@ list($lastevent) = $db->fetch_row($result);
 					</div>
 				</div>
 				<!-- Card -->
-				<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+				<div class="flex items-center p-4 bg-gray-50 rounded-lg shadow-xs dark:bg-gray-800">
 					<div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
 						&nbsp;<i class="fas fa-users"></i>&nbsp;
 					</div>
@@ -151,7 +151,7 @@ list($lastevent) = $db->fetch_row($result);
 					</div>
 				</div>
 				<!-- Card -->
-				<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+				<div class="flex items-center p-4 bg-gray-50 rounded-lg shadow-xs dark:bg-gray-800">
 					<div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
 						&nbsp;<i class="fas fa-book"></i>&nbsp;
 					</div>
@@ -161,7 +161,7 @@ list($lastevent) = $db->fetch_row($result);
 					</div>
 				</div>
 				<!-- Card -->
-				<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+				<div class="flex items-center p-4 bg-gray-50 rounded-lg shadow-xs dark:bg-gray-800">
 					<div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
 						&nbsp;<i class="fas fa-server"></i>&nbsp;                
 					</div>
@@ -171,7 +171,7 @@ list($lastevent) = $db->fetch_row($result);
 					</div>
 				</div>
 				<!-- Card -->
-				<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+				<div class="flex items-center p-4 bg-gray-50 rounded-lg shadow-xs dark:bg-gray-800">
 					<div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
 						&nbsp;<i class="fas fa-skull-crossbones"></i>&nbsp;
 					</div>
@@ -181,7 +181,7 @@ list($lastevent) = $db->fetch_row($result);
 					</div>
 				</div>
 				<!-- Card -->
-				<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+				<div class="flex items-center p-4 bg-gray-50 rounded-lg shadow-xs dark:bg-gray-800">
 					<div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
 						&nbsp;<i class="fas fa-history"></i>&nbsp;
 					</div>
@@ -194,7 +194,7 @@ list($lastevent) = $db->fetch_row($result);
 		if ($lastevent)	{
 ?>
 				<!-- Card -->
-				<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+				<div class="flex items-center p-4 bg-gray-50 rounded-lg shadow-xs dark:bg-gray-800">
 					<div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
 						&nbsp;&nbsp;<i class="fas fa-bolt"></i>&nbsp;
 					</div>
@@ -207,7 +207,7 @@ list($lastevent) = $db->fetch_row($result);
 			}
 ?>
 				<!-- Card -->
-				<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+				<div class="flex items-center p-4 bg-gray-50 rounded-lg shadow-xs dark:bg-gray-800">
 					<div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
 						&nbsp;<i class="fas fa-stopwatch"></i>&nbsp;
 					</div>
@@ -234,7 +234,7 @@ list($lastevent) = $db->fetch_row($result);
 					<td style="text-align:center;">&nbsp;Top Clan</td>
 				</tr>
 			</thead>
-			<tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+			<tbody class="bg-gray-50 divide-y dark:divide-gray-700 dark:bg-gray-800">
 <?php 
 		// $nonhiddengamestring = "(";
 		while ($gamedata = $db->fetch_row($resultGames))

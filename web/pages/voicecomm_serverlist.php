@@ -52,7 +52,7 @@
 				<td style="white-space:nowrap; padding-right:1rem;">Server Uptime</td>
 				<td style="white-space:nowrap;">Notes</td>
 			</tr>
-			<tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+			<tbody class="bg-gray-50 divide-y dark:divide-gray-700 dark:bg-gray-800">
 <?php
 		$i = 0; // TS1 counter
 		$j = 0; // Ventrilo counter

@@ -215,7 +215,7 @@ class Table
 ?>
 				</tr>
 			</thead>
-			<tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+			<tbody class="bg-gray-50 divide-y dark:divide-gray-700 dark:bg-gray-800">
 <?php
 		if ($totalwidth != 100)
 		{

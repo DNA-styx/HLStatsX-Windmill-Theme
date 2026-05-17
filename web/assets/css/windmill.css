@@ -37,17 +37,12 @@
 }
 
 .data-table td {
-	padding: 4px;
+	padding: 1px;
 	text-align: left;
-}
-
-.data-table tbody td {
-	border-top: 1px solid #AEAEAE;
 }
 
 .data-table-row {
 	background-color: #282828;
-	border-top: 1px solid #AEAEAE;
 	color: #FFFFFF;
 	vertical-align: bottom;
 }
@@ -55,7 +50,6 @@
 .data-table-head {
 	background-image: none;
 	background-color: #F9FAFB;
-	border-bottom: 1px solid #AEAEAE;
 	color: #6B7280;
 	vertical-align: bottom;
 }
@@ -140,14 +134,6 @@
 	text-decoration: none;
 }
 
-/* Dark mode support for legacy table header/row classes */
-.dark .data-table-head {
-	background-color: #1A1C23;
-	background-image: none;
-	color: #9CA3AF;
-	border-bottom-color: #374151;
-}
-
 .dark .data-table-head a:link,
 .dark .data-table-head a:active {
 	color: #9CA3AF;
@@ -164,21 +150,15 @@
 .dark .data-table-row {
 	background-color: #374151;
 	color: #F3F4F6;
-	border-top-color: #4B5563;
 }
 
-/* Uniform row colour matching table footer — no alternation.
-   Light mode: bg-gray-50 (#F9FAFB). Dark mode: footer dark colour (#1A1C23). */
+/* Uniform row colour matching footer — bg1/bg2 per-column classes overridden here */
 .data-table tbody td {
 	background-color: #F9FAFB;
 }
 
 .dark .data-table tbody td {
 	background-color: #1A1C23;
-}
-
-.dark .data-table tbody td {
-	border-top-color: #374151;
 }
 
 /* Dark mode scrollbar and form control theming */

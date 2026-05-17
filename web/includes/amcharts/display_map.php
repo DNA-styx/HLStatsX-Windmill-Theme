@@ -19,24 +19,27 @@ if (isset($_GET['mapgame'])) {
   die('MapGame not passed');
 }
 
-// Troubleshooting
-// echo $amcharts_maptype . " & " . $amcharts_mapgame;
-
 require_once('inc_amcharts_functions.php');
 
 ?>
 
 <head>
-
 </head>
 
 <!-- Styles -->
 <style>
-#amcharts_chartdiv {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+  /* Transparent background so the parent div's dark/light colour shows through */
+  html, body {
+    background: transparent !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  #amcharts_chartdiv {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
 </style>
 
 <!-- Resources -->
@@ -52,6 +55,11 @@ am5.ready(function() {
 
   root.setThemes([ am5themes_Animated.new(root) ]);
 
+  // Make root container and chart transparent so chartdiv CSS background shows through
+  root.container.set("background", am5.Rectangle.new(root, {
+    fillOpacity: 0
+  }));
+
   var chart = root.container.children.push(am5map.MapChart.new(root, {
     panX: "rotateX",
     panY: "translateY",
@@ -59,6 +67,25 @@ am5.ready(function() {
     minZoomLevel: 3,
     maxZoomLevel: 50
   }));
+
+  chart.set("background", am5.Rectangle.new(root, {
+    fillOpacity: 0
+  }));
+
+  // Reactively match chartdiv background to parent dark/light mode.
+  // MutationObserver fires whenever Alpine.js toggles the dark class,
+  // so colour stays correct without requiring a page reload.
+  function updateMapBg() {
+    var isDark = window.parent.document.documentElement.classList.contains('dark');
+    document.getElementById('amcharts_chartdiv').style.backgroundColor = isDark ? '#1A1C23' : '#F9FAFB';
+  }
+
+  updateMapBg();
+
+  new MutationObserver(updateMapBg).observe(
+    window.parent.document.documentElement,
+    { attributes: true, attributeFilter: ['class'] }
+  );
 
   var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
     geoJSON: am5geodata_worldLow

@@ -320,7 +320,7 @@ list($lastevent) = $db->fetch_row($result);
 <tr class="text-sm text-gray-700 dark:text-gray-400">
     <td style="padding:10px;">
         <div style="display:flex; align-items:center; gap:16px;">
-            <div style="display:flex; align-items:center; gap:8px; flex:1;">
+            <div style="display:flex; align-items:center; gap:8px; flex:1; min-width:0;">
 				<a href="<?php echo $g_options['scripturl'] . "?game=$gamedata[0]"; ?>" style="flex-shrink:0;">
 					<img src="<?php
 				$image = getImage("/games/$gamedata[0]/game");
@@ -330,7 +330,7 @@ list($lastevent) = $db->fetch_row($result);
 					echo IMAGE_PATH . '/game.gif';
 					?>" style="height:32px; width:32px; object-fit:contain; vertical-align:middle;" alt="Game">
 				</a>
-                <a href="<?php echo $g_options['scripturl'] . "?game=$gamedata[0]"; ?>" style="font-weight:600;"><?php echo $gamedata[1]; ?></a>
+                <a href="<?php echo $g_options['scripturl'] . "?game=$gamedata[0]"; ?>" style="font-weight:600; min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; flex:1;" title="<?php echo htmlspecialchars($gamedata[1]); ?>"><?php echo htmlspecialchars($gamedata[1]); ?></a>
             </div>
             <a href="<?php echo $g_options['scripturl'] . "?mode=players&amp;game=$gamedata[0]"; ?>" style="text-align:center; text-decoration:none;">
                 <div><i class="fas fa-user fa-lg"></i></div>

@@ -58,6 +58,17 @@ For support and installation notes visit http://www.hlxcommunity.com
 
 	if ($_POST)
 	{
+		if (is_array($_POST['rows'] ?? null))
+		{
+			foreach ($_POST['rows'] as $row)
+			{
+				$_POST[$row . '_reward_player'] = (int)($_POST[$row . '_reward_player'] ?? 0);
+				$_POST[$row . '_reward_team']   = (int)($_POST[$row . '_reward_team'] ?? 0);
+			}
+		}
+		$_POST['new_reward_player'] = (int)($_POST['new_reward_player'] ?? 0);
+		$_POST['new_reward_team']   = (int)($_POST['new_reward_team'] ?? 0);
+
 		if ($edlist->update())
 			message("success", "Operation successful.");
 		else
@@ -95,6 +106,6 @@ You can make an action map-specific by prepending the map name and an underscore
 
 <table width="75%" border=0 cellspacing=0 cellpadding=0>
 <tr>
-	<td align="center"><input type="submit" value="  Apply  " class="submit"></td>
+	<td align="center"><input type="submit" value="  Apppppppppply  " class="submit"></td>
 </tr>
 </table>

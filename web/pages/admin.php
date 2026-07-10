@@ -330,7 +330,7 @@ class EditList
 
 		$okcols = 0;
 		foreach ($this->columns as $col) {
-			$value = (!empty($_POST["new_$col->name"])) ? mystripslashes($_POST["new_$col->name"]) : '';
+			$value = (isset($_POST["new_$col->name"]) && $_POST["new_$col->name"] !== '') ? mystripslashes($_POST["new_$col->name"]) : '';
 			//  legacy code that should have never been here. these should never be html-escaped in the db.
 			//  if there's a problem with removing this, it needs to be fixed on the web/display end
 			//  -psychonic
@@ -433,7 +433,7 @@ class EditList
 						continue;
 					}
 
-					$value = (!empty($_POST[$row . "_" . $col->name])) ? mystripslashes($_POST[$row . "_" . $col->name]) : null;
+					$value = (isset($_POST[$row . "_" . $col->name]) && $_POST[$row . "_" . $col->name] !== '') ? mystripslashes($_POST[$row . "_" . $col->name]) : null;
 					
 					//  legacy code that should have never been here. these should never be html-escaped in the db.
 					//  if there's a problem with removing this, it needs to be fixed on the web/display end
@@ -777,7 +777,7 @@ class EditList
 						$onClick = "onmouseover=\"javascript:showHelp('" . strtolower($rowdata[$this->helpKey]) . "')\" onmouseout=\"javascript:hideHelp()\"";
 					}
 
-					$input_value = (!empty($value)) ? htmlentities(html_entity_decode($value), ENT_COMPAT, 'UTF-8') : "";
+					$input_value = ($value !== null && $value !== '') ? htmlentities(html_entity_decode($value), ENT_COMPAT, 'UTF-8') : "";
 
 					echo "<input $onClick type=\"text\" name=\"" . $keyval . "_$col->name\" size=$col->width " . "value=\"" . $input_value . "\" class=\"" . windmill_class_text() . "\"" . " maxlength=\"$col->maxlength\"$onclick />";
 // doing htmlentities on something that we just decoded is because we need to encode them when we fill out a form, but we don't want to double encode them (some items like rcon are not encoded at all - but server names are)

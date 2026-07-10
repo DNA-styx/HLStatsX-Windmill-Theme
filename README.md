@@ -19,7 +19,7 @@
     Responsive HLStatsx:CE Theme
     <br />
     <br />
-    <a href="https://hlstatsx.dnagames.site/hlstats.php?mode=players&game=dods">View Live Demo</a>
+    <a href="https://hlstatsx.dnagames.win/hlstats.php?mode=players&game=dods">View Live Demo</a>
     ·
     <a href="https://github.com/DNA-styx/HLSTATSX-Windmill-Theme/issues/new">Report a Bug</a>
     ·

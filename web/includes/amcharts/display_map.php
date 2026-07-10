@@ -115,25 +115,26 @@ am5.ready(function() {
     return am5.Bullet.new(root, { sprite: circle });
   });
 
-  var arrowSeries = chart.series.push(am5map.MapPointSeries.new(root, {}));
+  var serverSeries = chart.series.push(am5map.MapPointSeries.new(root, {}));
 
-  arrowSeries.bullets.push(function() {
-    var arrow = am5.Graphics.new(root, {
-      fill: am5.color(0x000000),
-      stroke: am5.color(0x000000),
-      draw: function(display) {
-        display.moveTo(0, -3);
-        display.lineTo(8, 0);
-        display.lineTo(0, 3);
-        display.lineTo(0, -3);
-      }
+  serverSeries.bullets.push(function() {
+    var serverCircle = am5.Circle.new(root, {
+      radius: 5,
+      tooltipHTML: "{title}",
+      tooltipY: 0,
+      fill: am5.color(0xf59e0b),
+      stroke: root.interfaceColors.get("background"),
+      strokeWidth: 2
     });
 
-    return am5.Bullet.new(root, { sprite: arrow });
+    return am5.Bullet.new(root, { sprite: serverCircle });
   });
 
   var cities = <?php echo $json_player_details; ?>;
   citySeries.data.setAll(cities);
+
+  var servers = <?php echo $json_server_details; ?>;
+  serverSeries.data.setAll(servers);
 
   polygonSeries.events.on("datavalidated", function() {
     chart.zoomToGeoPoint({

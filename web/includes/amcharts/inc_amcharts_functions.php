@@ -15,7 +15,7 @@ $amcharts__rank_count = 0;
 
 $name_map = [
     "top" => ["query" => "SELECT playerId,skill,lastName,lat,lng FROM `hlstats_Players` WHERE (lat IS NOT NULL && game = '$amcharts_mapgame' && !hideranking) ORDER BY skill DESC LIMIT 50", "title" => "Top Players", "rank_get" => 1],
-    "active" => ["query" => "SELECT player_Id AS playerId,skill,`Name` AS lastName,cli_lat AS lat,cli_lng AS lng FROM `hlstats_Livestats` WHERE (cli_lng IS NOT NULL)", "title" => "Active Players"],
+    "active" => ["query" => "SELECT hlstats_Livestats.player_Id AS playerId,hlstats_Livestats.skill,hlstats_Livestats.`Name` AS lastName,hlstats_Livestats.cli_lat AS lat,hlstats_Livestats.cli_lng AS lng FROM `hlstats_Livestats` INNER JOIN `hlstats_Servers` ON hlstats_Servers.serverId = hlstats_Livestats.server_id WHERE (hlstats_Livestats.cli_lng IS NOT NULL AND hlstats_Servers.game = '$amcharts_mapgame')", "title" => "Active Players"],
     "recent" => ["query" => "SELECT playerId,skill,lastName,lat,lng FROM `hlstats_Players` WHERE (lat IS NOT NULL && game = '$amcharts_mapgame' && !hideranking) ORDER BY last_event DESC LIMIT 20", "title" => "Recent Players"],
     "random" => ["query" => "SELECT lastName,lat,lng FROM `hlstats_Players` WHERE lat IS NOT NULL ORDER BY RAND() LIMIT 20", "title" => "Ten Random Players"]
 ];
@@ -92,6 +92,25 @@ try {
     // echo "\n\nJSON with item1 list:\n";
     // echo json_encode($item1List, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     $json_player_names = json_encode($item1List, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+
+    // Query to fetch server locations for the current game
+    $server_result = [];
+    $server_sql = "SELECT serverId, name, lat, lng FROM `hlstats_Servers` WHERE game = '$amcharts_mapgame' AND lat IS NOT NULL AND lng IS NOT NULL";
+    $server_stmt = $pdo->query($server_sql);
+    while ($srow = $server_stmt->fetch(PDO::FETCH_ASSOC)) {
+        $server_result[] = [
+            'id' => $srow['name'],
+            'title' => htmlspecialchars($srow['name'], ENT_QUOTES),
+            'geometry' => [
+                'type' => 'Point',
+                'coordinates' => [
+                    " ". floatval(round($srow['lng'],2)),
+                    " ". floatval(round($srow['lat'],2))
+                ]
+            ]
+        ];
+    }
+    $json_server_details = json_encode($server_result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();

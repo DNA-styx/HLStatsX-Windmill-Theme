@@ -21,7 +21,7 @@ jobs:
           ref: ${{ github.ref }}
           token: ${{ secrets.PAT }}
       - name: Increment value
-        uses: yoichiro/gh-action-increment-value@main
+        uses: yoichiro/gh-action-increment-value@03a794ec691e62fdb2dd03f105ef239e8f932678 # v5
         with:
           target_directory: 'web/assets'
           target_file: 'theme_version.txt'

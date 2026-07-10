@@ -27,7 +27,7 @@ jobs:
 
       - name: Get changed files in the .github folder
         id: changed-files-specific
-        uses: tj-actions/changed-files@v46.0.5
+        uses: tj-actions/changed-files@ed68ef82c095e0d48ec87eccea555d944a631a4c # v46.0.5
         with:
           files: web/**
           files_separator: '\n'

@@ -83,7 +83,6 @@ For support and installation notes visit http://www.hlxcommunity.com
 								curl_setopt($curl, CURLOPT_URL, $profileUrl);
 
 								$xml = curl_exec($curl);
-								curl_close($curl);
 							}
 							
 							$xmlDoc = null;

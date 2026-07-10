@@ -377,6 +377,5 @@ function url_get_contents($Url) {
 	curl_setopt($ch, CURLOPT_URL, $Url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$output = curl_exec($ch);
-	curl_close($ch);
 	return $output;
 }

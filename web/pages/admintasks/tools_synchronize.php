@@ -64,7 +64,6 @@ For support and installation notes visit http://www.hlxcommunity.com
    function hide_cheaters($query)  {
      global $db;
      $result      = $db->query($query);
-     $cheater     = array();
      $query       = "UPDATE hlstats_Players SET last_event = IF(hideranking <> 2, UNIX_TIMESTAMP(), last_event), hideranking = 2 WHERE playerId IN ";
      $insert_part = "";
      $first       = 0;

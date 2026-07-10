@@ -127,7 +127,7 @@ class Table
 	
 	function start($numitems, $width=100, $align='center')
 	{
-		global $g_options, $game, $realgame, $db;
+		global $game, $realgame, $db;
 		$numpages = ceil($numitems / $this->numperpage);
 ?>
 

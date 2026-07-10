@@ -64,7 +64,6 @@ For support and installation notes visit http://www.hlxcommunity.com
 
 		function draw ()
 		{
-			global $g_options;
 ?>
 	<h4 class="mb-4 mt-4 text-lg font-semibold text-gray-600 dark:text-gray-300"><?php echo $this->title; ?></h4>
 	<table class="data-table" style="width:75%">

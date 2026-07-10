@@ -210,7 +210,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 		<div style="float:right;width:48.5%;text-align:center;padding-top:50px;">
 <?php
 			if (file_exists(IMAGE_PATH.'/flags/'.strtolower($flag).'_large.png')) {
-				echo '<img src="'.IMAGE_PATH.'/flags/'.strtolower($flag).'_large.png" style="border:0px;" alt="'.$flag.'">';
+				echo '<img src="'.IMAGE_PATH.'/flags/'.strtolower($flag).'_large.png" style="border:0px;" alt="'.htmlspecialchars($flag, ENT_QUOTES).'">';
 			} else {
 				echo '<img src="'.IMAGE_PATH.'/countryclanlogos/NA.png" style="border:0px;" alt="">';
 			}

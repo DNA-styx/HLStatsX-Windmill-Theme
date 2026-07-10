@@ -249,7 +249,7 @@ if ($total_kills > 0)
 ?>
 			<tr style="cursor: pointer;" class="handle text-sm font-semibold text-gray-700 dark:text-gray-400">
 			<td colspan="5">&nbsp;&nbsp;<?php
-			echo $rowdata['name'] . "\n";
+			echo htmlspecialchars($rowdata['name'], ENT_QUOTES) . "\n";
 			echo " <span class=\"windmill-text-link\"><a href=\"hlstats.php?game=$game&mode=servers&server_id=$server_id\">(Details)</a></span>\n";
 			echo " <span class=\"windmill-text-link\"><a href=\"steam://connect/$addr\">(Join)</a></span>\n";
 

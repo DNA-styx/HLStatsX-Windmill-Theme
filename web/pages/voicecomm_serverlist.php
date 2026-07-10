@@ -149,9 +149,9 @@
 				</td>
 				<td style="padding-right:1rem;">-</td>
 				<td style="padding-right:1rem;">
-					<a href="teamspeak://<?php echo $ts_server['addr'] . ':' . $ts_server['UDPPort'] ?>/?channel=?password=<?php echo $ts_server['password']; ?>"><?php echo $ts_server['addr'] . ':' . $ts_server['UDPPort']; ?></a>
+					<a href="teamspeak://<?php echo htmlspecialchars($ts_server['addr'] . ':' . $ts_server['UDPPort'], ENT_QUOTES); ?>/?channel=?password=<?php echo htmlspecialchars($ts_server['password'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($ts_server['addr'] . ':' . $ts_server['UDPPort'], ENT_QUOTES); ?></a>
 				</td>
-				<td style="padding-right:1rem;"><?php echo $ts_server['password']; ?></td>
+				<td style="padding-right:1rem;"><?php echo htmlspecialchars($ts_server['password'], ENT_QUOTES); ?></td>
 				<td style="white-space:nowrap; padding-right:1rem;"><?php echo $ts_slots; ?></td>
 				<td style="padding-right:1rem;">-</td>
 				<td style="white-space:nowrap;"><?php echo $ts_server["descr"]; ?></td>

@@ -101,7 +101,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	$data = $db->fetch_array($result);
 	
 	echo '<span class="fTitle">';
-	echo $data['lastName'];
+	echo htmlspecialchars($data['lastName'], ENT_QUOTES);
 	echo '</span>';
 	
 	echo '<span class="fNormal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'

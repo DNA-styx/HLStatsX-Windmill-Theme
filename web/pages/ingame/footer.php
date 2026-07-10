@@ -53,18 +53,18 @@ For support and installation notes visit http://www.hlxcommunity.com
 <div class="flex items-center justify-between p-4 mb-4 text-sm px-4 py-3 bg-white rounded-lg shadow-md dark:bg-gray-800 text-gray-600 dark:text-gray-400">
 	<div class="flex items-center">
 		<span>
-			<a class="font-semibold" href="https://github.com/startersclan/hlstatsx-community-edition" target="_blank">
+			<a class="font-semibold" href="https://github.com/startersclan/hlstatsx-community-edition">
 				HLstatsX Community Edition v<?php echo $g_options['version']; ?>
 			</a>
 		</span>
 	</div>
 	<div class="flex items-center">
 		<span align="right">
-			<a class="font-semibold" href="https://github.com/DNA-styx/hlstatsx-windmill-theme" target="_blank">
+			<a class="font-semibold" href="https://github.com/DNA-styx/hlstatsx-windmill-theme">
 				Theme <?php echo $theme_version; ?>
 			</a>
 			based on
-			<a class="font-semibold" href="https://github.com/estevanmaito/windmill-dashboard" target="_blank">
+			<a class="font-semibold" href="https://github.com/estevanmaito/windmill-dashboard">
 				Windmill Dashboard
 			</a>
 		</span>

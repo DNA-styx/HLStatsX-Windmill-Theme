@@ -133,7 +133,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 			new TableColumn(
 				'smweapon',
 				'Weapon',
-				'width=10&type=weaponimg&align=center&link=' . urlencode("mode=weaponinfo&weapon=%k&game=$game"),
+				'width=10&type=weaponimg&align=center&link=' . urlencode("mode=weaponinfo&weapon=%k&game=$game&player=$player"),
 				$fname
 			),
 			new TableColumn(
@@ -234,10 +234,12 @@ For support and installation notes visit http://www.hlxcommunity.com
 			$tblWeaponstats2->sort2 $tblWeaponstats2->sortorder
 	");	
 
+display_page_title('Your Kill Statistics');
+display_ingame_menu();
 if ($db->num_rows($result) != 0)
 {
-	display_page_title('Your Kill Statistics');
-	display_ingame_menu();
 	$tblWeaponstats2->draw($result, $db->num_rows($result), 100);
-}        
+} else {
+	echo '<div class="p-4 mb-8 text-sm px-4 py-3 bg-white rounded-lg shadow-md dark:bg-gray-800 text-gray-600 dark:text-gray-400">No target data available.</div>';
+}
 	?>

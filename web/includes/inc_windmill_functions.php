@@ -54,7 +54,12 @@ function display_page_title($title) {
 	echo "              <div\r\n";
 	echo "                class=\"windmill-title-bar flex items-center justify-between p-4 mt-8 mb-8 text-l font-semibold rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple\"\r\n";
 	echo "                >\r\n";
-	echo "                  " . $title . "\r\n";
+	echo "                  <span>" . $title . "</span>\r\n";
+	if (defined('PAGE') && PAGE == 'INGAME') {
+		$ingame_dark = isset($_COOKIE['ingame_dark']) ? $_COOKIE['ingame_dark'] : '1';
+		$icon = ($ingame_dark == '1') ? 'sun' : 'moon';
+		echo "                  <button onclick=\"toggleIngameTheme()\" aria-label=\"Toggle color mode\" style=\"background:none;border:none;cursor:pointer;color:inherit;\"><i id=\"ingameThemeIcon\" class=\"fas fa-$icon\"></i></button>\r\n";
+	}
 	echo "              </div>\r\n";
 }
 
@@ -280,7 +285,7 @@ function getWindmillSelect($name, $values, $currentvalue = '')
 }
 
 function display_ingame_menu() {
-	global $g_options;
+	global $g_options, $game;
 
 	// Hide Menu if using these pages elsewhere
 	if (!isset($_GET['hide'])) {
@@ -297,7 +302,7 @@ function display_ingame_menu() {
 		echo "    <div class=\"flex items-center\">\n";
 		echo "        <span>\n";
 
-		if (isset($_GET['game']) && isset($_GET['player']) && !empty($_GET['player'])) {
+		if (!empty($game) && isset($_GET['player']) && !empty($_GET['player'])) {
 			echo "			<b>Your Stats: </b>\n";
 			echo "			<a href=\"ingame.php?game=" . $game . "&mode=statsme&player=" . $player . "\">StatsMe</a> |\n";
 			echo "			<a href=\"ingame.php?game=" . $game . "&mode=maps&player=" . $player . "\">Maps</a> |\n";
@@ -312,12 +317,13 @@ function display_ingame_menu() {
 
 		echo "    <div class=\"flex items-center\">\n";
 		echo "		<span align=\"right\">\n";
-		if (isset($_GET['game'])) {
+		if (!empty($game)) {
 			echo "			<b>Server Stats:</b>\n";
 			echo "			<a href=\"ingame.php?game=" . $game . "&mode=servers\">Servers</a> |\n";
 			echo "			<a href=\"ingame.php?game=" . $game . "&mode=players\">Players</a> |\n";
 			echo "			<a href=\"ingame.php?game=" . $game . "&mode=weapons\">Weapons</a> |\n";
-			echo "			<a href=\"ingame.php?game=" . $game . "&mode=maps\">Maps</a>\n";
+			echo "			<a href=\"ingame.php?game=" . $game . "&mode=maps\">Maps</a> |\n";
+			echo "			<a href=\"ingame.php?game=" . $game . "&mode=actions\">Actions</a>\n";
 		}
 		echo "		</span>\n";
 		echo "    </div>\n";

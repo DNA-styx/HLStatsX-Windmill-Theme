@@ -58,11 +58,16 @@ For support and installation notes visit http://www.hlxcommunity.com
 
 	// include custom windmill functions
 	include 'includes/inc_windmill_functions.php';
+
+	// Cookie-based dark/light toggle for ingame pages (no Alpine/localStorage - see Issue 4).
+	// Defaults to dark when the cookie hasn't been set yet.
+	$ingame_dark = isset($_COOKIE['ingame_dark']) ? $_COOKIE['ingame_dark'] : '1';
 ?>
 <!-- start ingame/header.php -->
 <!DOCTYPE html>
 <!-- Issue 4 fix: removed Alpine dark mode binding - ingame pages are always light mode, no toggle -->
-<html lang="en">
+<!-- Cookie-based toggle added: no Alpine.js, no localStorage, plain cookie read server-side -->
+<html lang="en" class="<?php echo ($ingame_dark == '1') ? 'dark' : ''; ?>">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,6 +76,24 @@ For support and installation notes visit http://www.hlxcommunity.com
 	<link rel="stylesheet" type="text/css" href="./assets/css/windmill.css">
 	<link rel="stylesheet" type="text/css" href="./styles/<?php echo $windmill_style; ?>">
 	<script src="./assets/js/fontawesome-all.min.js"></script>
+	<script>
+		function toggleIngameTheme() {
+			var html = document.documentElement;
+			var isDark = html.classList.contains('dark');
+			if (isDark) {
+				html.classList.remove('dark');
+				document.cookie = "ingame_dark=0;path=/;max-age=31536000";
+			} else {
+				html.classList.add('dark');
+				document.cookie = "ingame_dark=1;path=/;max-age=31536000";
+			}
+			var icon = document.getElementById('ingameThemeIcon');
+			if (icon) {
+				icon.classList.toggle('fa-sun');
+				icon.classList.toggle('fa-moon');
+			}
+		}
+	</script>
 	<title>HLstatsX</title>
 </head>
 <body>

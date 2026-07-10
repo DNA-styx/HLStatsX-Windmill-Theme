@@ -56,7 +56,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 			new TableColumn(
 				'description',
 				'Action',
-				'width=45&link=' . urlencode("mode=actioninfo&amp;action=%k&amp;game=$game&player=$player")
+				'width=45&link=' . urlencode("mode=actioninfo&amp;action=%k&amp;game=$game" . ($player ? "&player=$player" : ""))
 			),
 			new TableColumn(
 				'obj_count',
@@ -108,7 +108,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 			$tblPlayerActions->sort2 $tblPlayerActions->sortorder
 	");
 
-	display_page_title('Your Action Statistics');
+	display_page_title($player ? 'Your Action Statistics' : 'Action Statistics');
 	display_ingame_menu();
 	$tblPlayerActions->draw($result, $db->num_rows($result), 100);
 ?>

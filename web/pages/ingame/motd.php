@@ -216,15 +216,17 @@ For support and installation notes visit http://www.hlxcommunity.com
 	// Servers
 	//
 	if ($servers > 0) { ?>
-	<div class="p-4 mb-8 text-sm px-4 py-3 bg-white rounded-lg shadow-md dark:bg-gray-800 text-gray-600 dark:text-gray-400">
-		<table class="data-table-head text-xs tracking-wide text-left text-gray-500 border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-			<tr class="text-xs font-semibold uppercase text-gray-700 dark:text-gray-400">
-				<td style="width:50%;" class="fSmall">&nbsp;Participating Servers</td>
-				<td style="width:20%;" class="fSmall">&nbsp;Address</td>
-				<td style="width:10%;text-align:center;" class="fSmall">&nbsp;Map</td>
-				<td style="width:10%;text-align:center;" class="fSmall">&nbsp;Played</td>
-				<td style="width:10%;" class="fSmall">&nbsp;Players</td>
-			</tr>
+	<div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+		<div class="w-full overflow-x-auto">
+			<table class="w-full" style="white-space:nowrap;">
+				<tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+					<td style="width:50%;">&nbsp;Participating Servers</td>
+					<td style="width:20%;">&nbsp;Address</td>
+					<td style="width:10%;text-align:center;">&nbsp;Map</td>
+					<td style="width:10%;text-align:center;">&nbsp;Played</td>
+					<td style="width:10%;">&nbsp;Players</td>
+				</tr>
+				<tbody class="bg-gray-50 divide-y dark:divide-gray-700 dark:bg-gray-800">
         
 <?php
 	$query= "
@@ -275,28 +277,31 @@ For support and installation notes visit http://www.hlxcommunity.com
 
 ?>
 
-			<tr class="bg<?php echo $c; ?>">
-				<td style="width:35%;" class="fSmall"><?php
+			<tr class="text-xs text-gray-700 dark:text-gray-400">
+				<td style="width:35%;"><?php
 					echo '<strong>'.$rowdata['name'].'</strong>';
 				?></td>
-				<td style="width:20%;" class="fSmall"><?php
+				<td style="width:20%;"><?php
 					echo $addr;
 				?></td>
-				<td style="text-align:center;width:15%;" class="fSmall"><?php
+				<td style="text-align:center;width:15%;"><?php
 					echo $rowdata['act_map'];
 				?></td>
-				<td style="text-align:center;width:15%;" class="fSmall"><?php
+				<td style="text-align:center;width:15%;"><?php
 					$stamp = time()-$rowdata['map_started'];
 					$hours = sprintf('%02d', floor($stamp / 3600));
 					$min   = sprintf('%02d', floor(($stamp % 3600) / 60));
 					$sec   = sprintf('%02d', floor($stamp % 60)); 
 					echo "$hours:$min:$sec";
 				?></td>
-				<td style="text-align:center;width:15%;" class="fSmall"><?php
+				<td style="text-align:center;width:15%;"><?php
 					echo $player_string;
 				?></td>
 			</tr>
 <?php } ?>
-        </table>        
+				</tbody>
+			</table>
+		</div>
+		<div class="rounded-b-lg border-t dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">&nbsp;</div>
 	</div>
 <?php  } ?>

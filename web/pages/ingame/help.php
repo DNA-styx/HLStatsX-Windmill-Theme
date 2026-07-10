@@ -49,128 +49,146 @@ For support and installation notes visit http://www.hlxcommunity.com
 	display_ingame_menu();
 
 ?>
-<div class="p-4 mb-8 text-sm px-4 py-3 bg-white rounded-lg shadow-md dark:bg-gray-800">
+<?php display_page_subtitle('Commands display the results ingame'); ?>
+<div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+	<div class="w-full overflow-x-auto">
+	<table class="w-full" style="white-space:nowrap;">
+		<tbody class="bg-gray-50 divide-y dark:divide-gray-700 dark:bg-gray-800">
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>rank [skill, points, place (to all)]</td>
+			<td>=</td>
+			<td>Current position</td>
+		</tr>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>kpd [kdratio, kdeath (to all)]</td>
+			<td>=</td>
+			<td>Total player statistics</td>
+		</tr>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>session [session_data (to all)]</td>
+			<td>=</td>
+			<td>Current session statistics</td>
+		</tr>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>next</td>
+			<td>=</td>
+			<td>Players ahead in the ranking.</td>
+		</tr>
+		</tbody>
+	</table>
+	</div>
+	<div class="rounded-b-lg border-t dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">&nbsp;</div>
+</div>
 
-	<table style="width:100%;border:0;padding:1px;border-spacing:0;">
-		<tr class="data-table-head">
-			<td class="fSmall data-table" colspan="3"><?php display_page_subtitle('Commands display the results ingame'); ?></td>
+<?php display_page_subtitle('Commands display the results in window'); ?>
+<div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+	<div class="w-full overflow-x-auto">
+	<table class="w-full" style="white-space:nowrap;">
+		<tbody class="bg-gray-50 divide-y dark:divide-gray-700 dark:bg-gray-800">
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>load</td>
+			<td>=</td>
+			<td>Statistics from all servers</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">rank [skill, points, place (to all)]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Current position</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>status</td>
+			<td>=</td>
+			<td>Current server status</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">kpd [kdratio, kdeath (to all)]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Total player statistics</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>servers</td>
+			<td>=</td>
+			<td>List of all participating servers</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">session [session_data (to all)]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Current session statistics</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>top20 [top5, top10]</td>
+			<td>=</td>
+			<td>Top-Players</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">next</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Players ahead in the ranking.</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>clans</td>
+			<td>=</td>
+			<td>Clan ranking</td>
 		</tr>
-		<tr class="data-table-head">
-			<td class="fSmall data-table" colspan="3"><?php display_page_subtitle('Commands display the results in window'); ?></td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>cheaters</td>
+			<td>=</td>
+			<td>Banned players</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">load</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Statistics from all servers</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>statsme</td>
+			<td>=</td>
+			<td>Statistic summary</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">status</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Current server status</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>weapons [weapon]</td>
+			<td>=</td>
+			<td>Weapons usage</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">servers</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">List of all participating servers</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>accuracy</td>
+			<td>=</td>
+			<td>Weapons accuracy</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">top20 [top5, top10]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Top-Players</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>targets [target]</td>
+			<td>=</td>
+			<td>Targets hit positions</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">clans</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Clan ranking</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>kills [kill, player_kills]</td>
+			<td>=</td>
+			<td>Kill statistics (5 or more kills)</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">cheaters</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Banned players</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>actions [action]</td>
+			<td>=</td>
+			<td>Server actions summary</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">statsme</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Statistic summary</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>help [cmd, cmds, commands]</td>
+			<td>=</td>
+			<td>Help screen</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">weapons [weapon]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Weapons usage</td>
+		</tbody>
+	</table>
+	</div>
+	<div class="rounded-b-lg border-t dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">&nbsp;</div>
+</div>
+
+<?php display_page_subtitle('Commands to set your user options'); ?>
+<div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+	<div class="w-full overflow-x-auto">
+	<table class="w-full" style="white-space:nowrap;">
+		<tbody class="bg-gray-50 divide-y dark:divide-gray-700 dark:bg-gray-800">
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>hlx_auto clear|start|end|kill command</td>
+			<td>=</td>
+			<td>Auto-Command on specific event (on death, roundstart, roundend)</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">accuracy</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Weapons accuracy</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>hlx_display 0|1</td>
+			<td>=</td>
+			<td>Enable or disable displaying console events.</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">targets [target]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Targets hit positions</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>hlx_chat 0|1</td>
+			<td>=</td>
+			<td>Enable or disable the displaying of global chat events(if enabled).</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">kills [kill, player_kills]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Kill statistics (5 or more kills)</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>/hlx_set realname|email|homepage [value]</td>
+			<td>=</td>
+			<td>(Type in chat, not console) Sets your player info.</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">actions [action]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Server actions summary</td>
+		<tr class="text-xs text-gray-700 dark:text-gray-400">
+			<td>/hlx_hideranking</td>
+			<td>=</td>
+			<td>(Type in chat, not console) Makes you invisible on player rankings, unranked.</td>
 		</tr>
-		<tr class="bg1">
-			<td class="fNormal">help [cmd, cmds, commands]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Help screen</td>
-		</tr>
-		<tr class="data-table-head">
-			<td class="fSmall data-table" colspan="3"><?php display_page_subtitle('Commands to set your user options'); ?></td>
-		</tr>
-		<tr class="bg1">
-			<td class="fNormal">hlx_auto clear|start|end|kill command</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Auto-Command on specific event (on death, roundstart, roundend)</td>
-		</tr>
-		<tr class="bg1">
-			<td class="fNormal">hlx_display 0|1</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Enable or disable displaying console events.</td>
-		</tr>
-		<tr class="bg1">
-			<td class="fNormal">hlx_chat 0|1</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">Enable or disable the displaying of global chat events(if enabled).</td>
-		</tr>
-		<tr class="bg1">
-			<td class="fNormal">/hlx_set realname|email|homepage [value]</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">(Type in chat, not console) Sets your player info.</td>
-		</tr>
-		<tr class="bg1">
-			<td class="fNormal">/hlx_hideranking</td>
-			<td class="fNormal">=</td>
-			<td class="fNormal">(Type in chat, not console) Makes you invisible on player rankings, unranked.</td>
-		</tr>
-    </table>
+		</tbody>
+	</table>
+	</div>
+	<div class="rounded-b-lg border-t dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">&nbsp;</div>
 </div>
 <br>

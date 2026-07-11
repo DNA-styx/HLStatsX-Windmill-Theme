@@ -60,7 +60,7 @@ function printserverstats($server_id)
                 serverId,
                 name,
                 IF(publicaddress != '',
-                    publicaddress,
+                    IF(publicaddress LIKE '%:%', publicaddress, CONCAT(publicaddress, ':', port)),
                     concat(address, ':', port)
                 ) AS addr,
                 statusurl,

@@ -78,7 +78,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 				serverId,
 				name,
 				IF(publicaddress != '',
-					publicaddress,
+					IF(publicaddress LIKE '%:%', publicaddress, CONCAT(publicaddress, ':', port)),
 					concat(address, ':', port)
 				) AS addr,
 				".//"statusurl,"
@@ -174,4 +174,4 @@ For support and installation notes visit http://www.hlxcommunity.com
 	echo "</table>";
 
 	}  // for servers
-?>		
+?>
